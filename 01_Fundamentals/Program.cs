@@ -8,14 +8,14 @@ namespace _01_Fundamentals
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
-            ImplicitlyTypedVariables();
-            Operators(4,4);
-            Console.WriteLine(CharDataType());
-            StringFormatting();
-            StringWithSymbols();
-        }
+        //static void Main(string[] args)
+        //{
+        //    ImplicitlyTypedVariables();
+        //    Operators(4,4);
+        //    Console.WriteLine(CharDataType());
+        //    StringFormatting();
+        //    StringWithSymbols();
+        //}
 
         static void ImplicitlyTypedVariables()
         {
@@ -99,7 +99,7 @@ namespace _01_Fundamentals
 
         static void StringWithSymbols()
         {
-            string s1 = "This is a string with\n\t\t\t\t\t\t\t\t a slash (/) and a colon (\")";
+            string s1 = "This is a string with\n a slash (/) and a colon (\")";
             Console.WriteLine(s1);
         }
     }
