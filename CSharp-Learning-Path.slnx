@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="01_Fundamentals/01_Fundamentals.csproj" />
+</Solution>
