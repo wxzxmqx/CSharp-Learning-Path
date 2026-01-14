@@ -37,6 +37,7 @@ namespace _02_Logic
         //    Console.WriteLine("");
 
         //    SwitchStatement();
+        //    TryParseUsage();
 
         //}
 
@@ -201,6 +202,26 @@ namespace _02_Logic
             }
 
             Console.WriteLine("The month is {0}", monthName);
+        }
+
+        static void TryParseUsage()
+        {
+            Console.Write("Give me a number: ");
+            string inputString = Console.ReadLine();
+            int num1 = 0;
+
+            //TryParse
+            bool isNumber = int.TryParse(inputString, out num1);
+
+            if (isNumber)
+            {
+                Console.WriteLine("It's an number.");
+            } else
+            {
+                Console.WriteLine("You should've enter the number");
+            }
+                num1++;
+            Console.WriteLine(num1);
         }
     }
 }

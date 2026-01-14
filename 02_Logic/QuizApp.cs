@@ -8,24 +8,23 @@ namespace _02_Logic
 {
     internal class QuizApp
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("========================================\r\n          ██████╗ ██╗   ██╗██╗███████╗\r\n         ██╔═══██╗██║   ██║██║╚══███╔╝\r\n         ██║   ██║██║   ██║██║  ███╔╝ \r\n         ██║▄▄ ██║██║   ██║██║ ███╔╝  \r\n         ╚██████╔╝╚██████╔╝██║███████╗\r\n          ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝\r\n========================================\r\n        Welcome to the QUIZ GAME\r\n========================================\r\n");
-            Console.WriteLine("Select the option:");
-            Console.WriteLine("\t1. Start the quiz");
-            Console.WriteLine("\t2. Add the question");
-            Console.WriteLine("\t3. Quit the game");
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine("========================================\r\n          ██████╗ ██╗   ██╗██╗███████╗\r\n         ██╔═══██╗██║   ██║██║╚══███╔╝\r\n         ██║   ██║██║   ██║██║  ███╔╝ \r\n         ██║▄▄ ██║██║   ██║██║ ███╔╝  \r\n         ╚██████╔╝╚██████╔╝██║███████╗\r\n          ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝\r\n========================================\r\n        Welcome to the QUIZ GAME\r\n========================================\r\n");
+        //    Console.WriteLine("Select the option:");
+        //    Console.WriteLine("\t1. Start the quiz");
+        //    Console.WriteLine("\t2. Add the question");
 
-            int op = int.Parse(Console.ReadLine());
+        //    int op = int.Parse(Console.ReadLine());
 
-            switch (op)
-            {
-                case 1: Quiz(); break;
-                case 2: AddQuestion(); break;
-                default: Console.WriteLine("Bye-bye!"); break;
-            }
+        //    switch (op)
+        //    {
+        //        case 1: Quiz(); break;
+        //        case 2: AddQuestion(); break;
+        //        default: Console.WriteLine("Bye-bye!"); break;
+        //    }
             
-        }
+        //}
 
         static void Quiz()
         {
