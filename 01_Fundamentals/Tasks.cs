@@ -5,18 +5,18 @@ namespace _01_Fundamentals
 {
     internal class Tasks
     {
-        static void Main(string[] args)
-        {
-            Task1();
-            Console.WriteLine("");
-            Task2();
-            Console.WriteLine("");
-            Task3();
-            Console.WriteLine("");
-            Task4();
-            Console.WriteLine("");
-            Task5();
-        }
+        //static void Main(string[] args)
+        //{
+        //    Task1();
+        //    Console.WriteLine("");
+        //    Task2();
+        //    Console.WriteLine("");
+        //    Task3();
+        //    Console.WriteLine("");
+        //    Task4();
+        //    Console.WriteLine("");
+        //    Task5();
+        //}
 
         static void Task1()
         {
