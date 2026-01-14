@@ -8,31 +8,37 @@ namespace _02_Logic
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
-            Booleans(true, true);
-            Booleans(true, false);
-            Booleans(false, false);
-            Booleans(false, true);
-            Console.WriteLine("");
+        //static void Main(string[] args)
+        //{
+        //    Booleans(true, true);
+        //    Booleans(true, false);
+        //    Booleans(false, false);
+        //    Booleans(false, true);
+        //    Console.WriteLine("");
 
-            RelationalOperators(2, 7);
-            RelationalOperators(14, 0);
-            RelationalOperators(4, 0);
-            RelationalOperators(4, 4);
+        //    RelationalOperators(2, 7);
+        //    RelationalOperators(14, 0);
+        //    RelationalOperators(4, 0);
+        //    RelationalOperators(4, 4);
 
-            Decisions("Serhii", 18);
-            Decisions("Kate", 24);
-            Decisions("Makar", 10);
-            Decisions("Andrew", 19);
-            Decisions("Nadya", 60);
-            Decisions("Rachiel", 660);
-            Decisions("Denis", -1);
-            Console.WriteLine("");
+        //    Decisions("Serhii", 18);
+        //    Decisions("Kate", 24);
+        //    Decisions("Makar", 10);
+        //    Decisions("Andrew", 19);
+        //    Decisions("Nadya", 60);
+        //    Decisions("Rachiel", 660);
+        //    Decisions("Denis", -1);
+        //    Console.WriteLine("");
 
-            Equality();
+        //    Equality();
+        //    Console.WriteLine("");
 
-        }
+        //    Clubbing();
+        //    Console.WriteLine("");
+
+        //    SwitchStatement();
+
+        //}
 
         /* 
         === LOGICAL OPERATORS ===
@@ -119,7 +125,6 @@ namespace _02_Logic
             decimal num2 = decimal.Parse(Console.ReadLine());
 
             bool isEqual = num1 == num2;
-            bool isNotEqual = num1 != num2;
 
             if (isEqual)
             {
@@ -128,6 +133,74 @@ namespace _02_Logic
             {
                 Console.WriteLine("Numbers are not equal!");
             }
+        }
+
+        static int userSubscriptions = 0; // << static sees only static
+
+        static void VariableScope()
+        {
+            int userFriends = 174;
+            userSubscriptions = 553;
+        }
+
+        // userFriends = 455;   << unavailable out of scope
+        // userSubscriptions = 19; << available
+
+        static void Clubbing()
+        {
+            Console.Write("Enter your age: ");
+            int age = int.Parse(Console.ReadLine());
+            bool isWithParents = false;
+
+            if (age > 18)
+            {
+                Console.WriteLine("Go party in the club!");
+            } else if (age >= 13)
+            {
+                Console.WriteLine("Are you with your parents?");
+                var isWithParentsString = Console.ReadKey().KeyChar;
+                if (isWithParentsString == 'y')
+                {
+                    isWithParents = true;
+                    Console.WriteLine("\nGo party with your parents.");
+                } else
+                {
+                    Console.WriteLine("\nNo party for you today.");
+                }
+            } else
+            {
+                Console.WriteLine("[i] Invalid Input.");
+            }
+        }
+
+        static void SwitchStatement()
+        {
+            Console.Write("Month: ");
+            int month = int.Parse(Console.ReadLine());
+            string monthName;
+
+            switch (month)
+            {
+                case 1: monthName = "January"; break;
+                case 2: monthName = "February"; break;
+
+                case 3: monthName = "March"; break;
+                case 4: monthName = "April"; break;
+                case 5: monthName = "May"; break;
+
+                case 6: monthName = "June"; break;
+                case 7: monthName = "July"; break;
+                case 8: monthName = "August"; break;
+
+                case 9: monthName = "September"; break;
+                case 10: monthName = "October"; break;
+                case 11: monthName = "November"; break;
+
+                case 12: monthName = "December"; break;
+                default: monthName = "Unknown"; break;
+            }
+
+            Console.WriteLine("The month is {0}", monthName);
         }
     }
 }
