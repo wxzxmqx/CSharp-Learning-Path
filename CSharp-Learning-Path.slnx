@@ -4,4 +4,5 @@
   </Folder>
   <Project Path="01_Fundamentals/01_Fundamentals.csproj" Id="2c73b9b3-ea15-44a3-bde7-8317323d0527" />
   <Project Path="02_Logic/02_Logic.csproj" Id="dc34ea60-a077-46ac-bc29-5ce88c3b7421" />
+  <Project Path="03_Loops/03_Loops.csproj" Id="ada91f22-ee37-4f69-8d41-74a7efcdd5d4" />
 </Solution>
