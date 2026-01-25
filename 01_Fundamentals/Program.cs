@@ -8,14 +8,14 @@ namespace _01_Fundamentals
 {
     internal class Program
     {
-        //static void Main(string[] args)
-        //{
-        //    ImplicitlyTypedVariables();
-        //    Operators(4,4);
-        //    Console.WriteLine(CharDataType());
-        //    StringFormatting();
-        //    StringWithSymbols();
-        //}
+        static void Main(string[] args)
+        {
+            ImplicitlyTypedVariables();
+            Operators(4,4);
+            Console.WriteLine(CharDataType());
+            StringFormatting();
+            StringWithSymbols();
+        }
 
         static void ImplicitlyTypedVariables()
         {

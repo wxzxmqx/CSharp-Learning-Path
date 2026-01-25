@@ -205,6 +205,72 @@ namespace _03_Loops
                     }
                 }
             }
+
+            DoWhileLoop();
+            BreakContinue();
+        }
+        
+        static void DoWhileLoop()
+        {
+            string[] subjects = { "Literature", "Maths", "Physics", "Chemistry", "Biology" };
+            List<string> results = new List<string>();
+            
+            int firstTermScore, secondTermScore;
+            int i = 0;
+
+            do
+            {
+                string currentSubject = subjects[i];
+                Console.WriteLine("\nSubject: {0}, 1st term: ", currentSubject);
+                firstTermScore = int.Parse(Console.ReadLine());
+
+                if (firstTermScore < 1 || firstTermScore > 12)
+                {
+                    firstTermScore = 0;
+                    Console.WriteLine("Set 0 by default.");
+                }
+                
+                Console.WriteLine("\nSubject: {0}, 2nd term: ", currentSubject);
+                secondTermScore = int.Parse(Console.ReadLine());
+                
+                if (secondTermScore < 1 || secondTermScore > 12)
+                {
+                    secondTermScore = 0;
+                    Console.WriteLine("Set 0 by default.");
+                }
+
+                double average = (double)(firstTermScore + secondTermScore) / 2;
+
+                Console.WriteLine("Your year score for subject {0} is: {1}\n", currentSubject, average
+                );
+
+                results.Add($"{subjects[i]}: {firstTermScore} / {secondTermScore} => {average}");
+                i++;
+                Console.Clear();
+            } while (i < subjects.Length);
+
+            foreach (string line in results)
+            {
+                Console.WriteLine(line);
+            }
+        }
+        
+        // Break & Continue
+
+        static void BreakContinue()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+                if (i == 3)
+                {
+                    Console.WriteLine("I've had enough.");
+                    // break; // gets out of the current loop
+                    continue;
+                }
+
+                Console.WriteLine("Only if not continued");
+            }
         }
     }
 }

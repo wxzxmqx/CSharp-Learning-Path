@@ -8,38 +8,38 @@ namespace _02_Logic
 {
     internal class Program
     {
-        //static void Main(string[] args)
-        //{
-        //    Booleans(true, true);
-        //    Booleans(true, false);
-        //    Booleans(false, false);
-        //    Booleans(false, true);
-        //    Console.WriteLine("");
+        static void Main(string[] args)
+        {
+            Booleans(true, true);
+            Booleans(true, false);
+            Booleans(false, false);
+           Booleans(false, true);
+          Console.WriteLine("");
 
-        //    RelationalOperators(2, 7);
-        //    RelationalOperators(14, 0);
-        //    RelationalOperators(4, 0);
-        //    RelationalOperators(4, 4);
+            RelationalOperators(2, 7);
+            RelationalOperators(14, 0);
+            RelationalOperators(4, 0);
+            RelationalOperators(4, 4);
 
-        //    Decisions("Serhii", 18);
-        //    Decisions("Kate", 24);
-        //    Decisions("Makar", 10);
-        //    Decisions("Andrew", 19);
-        //    Decisions("Nadya", 60);
-        //    Decisions("Rachiel", 660);
-        //    Decisions("Denis", -1);
-        //    Console.WriteLine("");
+            Decisions("Serhii", 18);
+            Decisions("Kate", 24);
+            Decisions("Makar", 10);
+            Decisions("Andrew", 19);
+            Decisions("Nadya", 60);
+            Decisions("Rachiel", 660);
+            Decisions("Denis", -1);
+            Console.WriteLine("");
 
-        //    Equality();
-        //    Console.WriteLine("");
+            Equality();
+            Console.WriteLine("");
 
-        //    Clubbing();
-        //    Console.WriteLine("");
+           Clubbing();
+           Console.WriteLine("");
 
-        //    SwitchStatement();
-        //    TryParseUsage();
+            SwitchStatement();
+            TryParseUsage();
 
-        //}
+        }
 
         /* 
         === LOGICAL OPERATORS ===
