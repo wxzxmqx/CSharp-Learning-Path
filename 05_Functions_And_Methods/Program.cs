@@ -2,6 +2,8 @@
 {
     public class Program
     {
+        static int myResult;
+        
         static void Main()
         {
             // calling a method
@@ -14,11 +16,17 @@
             // calling the method with an argument
             WriteSomethingSpecific(githubUsername);
 
-            int num1 = int.Parse(Console.ReadLine());
-            int num2 = int.Parse(Console.ReadLine());
-            int myResult = Add(num1, num2);
-
-            Console.WriteLine(myResult);
+            if (int.TryParse(Console.ReadLine(), out int num1))
+            {
+                if (int.TryParse(Console.ReadLine(), out int num2))
+                {
+                    myResult = Add(num1, num2);
+                    Console.WriteLine(myResult);
+                    
+                    myResult = Subtract(num1, num2);
+                    Console.WriteLine(myResult);
+                }
+            }
             
             // SCOPE OF VARIABLES & PARAMETERS
             int currentYear = 2026;
@@ -27,6 +35,18 @@
             
             // but we cannot access myCurrentAge out of the method!!!
             // myCurrentAge = 18;         <== ERROR
+
+            Next();
+            
+            // Weather App Execution
+            WeatherApp app = new WeatherApp();
+            app.Run();
+        }
+
+        static void Next()
+        {
+            Console.ReadKey();
+            Console.Clear();
         }
         
         // void method (returns nothing)
@@ -44,7 +64,14 @@
         // method declaration with return value
         static int Add(int value1, int value2)
         {
-            return value1 + value2;
+            myResult = value1 + value2;
+            return myResult;
+        }
+
+        static int Subtract(int value1, int value2)
+        {
+            myResult = value1 - value2;
+            return myResult;
         }
         
         // SHOWCASE OF SCOPE
