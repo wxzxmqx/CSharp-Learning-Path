@@ -63,7 +63,7 @@ class Program
           // // // // //
          // COMPANY //
         // //  //  // 
-        
+        Console.Clear();
         // Create an instance of the class Employees (company)
         Employees company = new Employees();
 
@@ -72,7 +72,7 @@ class Program
         
         // Setting details about a new employee
         emp1.SetPersonalDetails("John", "Doe", new DateTime(1990, 01, 01), "Cologne");
-        emp1.SetJobDetails("Software Developer", 75000, false, false, new DateTime(2025 - 12 - 31));
+        emp1.SetJobDetails(Employees.jobTitles[2], 2500);
 
         // Add a new employee to created list
         company.AddEmployee(emp1);
@@ -82,9 +82,14 @@ class Program
         // USING NAMED PARAMETERS
         emp2.SetPersonalDetails(firstname: "Mark", lastname: "Joe", birthdate: new DateTime(1996 - 03 - 05),
             location: "New York");
-        emp2.SetJobDetails("Project Manager", 89000, false, true, new DateTime(2023 - 05 - 06));
+        emp2.SetJobDetails(Employees.jobTitles[6], 9500);
         
         // Add a new employee to created list
-        company.AddEmployee(emp1);
+        company.AddEmployee(emp2);
+
+        emp1.SubmitVacation(DateTime.Now.AddDays(30));
+        emp2.SubmitSickLeave(DateTime.Now.AddDays(14));
+
+        company.DisplayAllEmployees();
     }
 }
