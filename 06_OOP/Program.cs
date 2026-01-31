@@ -17,9 +17,31 @@ class Program
         Console.WriteLine("Brand is: {0}. ", ford.Brand);
         
         // STUDENT DATABASE
-        Person a = new Person("Mark", "Borysov");
-        Person b = new Person("Katja", "Esenina");
-        Person c = new Person(Console.ReadLine(), Console.ReadLine());
+        bool isRunning = true;
+
+        while (isRunning)
+        {
+            Console.Write("Enter student's name: ");
+            string studentName = Console.ReadLine();
+            
+            Console.Write("Enter student's surname: ");
+            string studentSurname = Console.ReadLine();
+            
+            if (studentName == "" && studentSurname == "")
+            {
+                isRunning = false;
+            }
+            
+            Person newStudent = new Person(studentName, studentSurname);
+            
+            Console.WriteLine("\n[i] Click any button to add a new student");
+            
+            Console.ReadKey();
+            Console.Clear();
+            
+
+            
+        }
         
         
     }
