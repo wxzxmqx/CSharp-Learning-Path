@@ -7,9 +7,22 @@ internal class Car
     private string _model;
     private string _brand;
 
+    private bool _isLuxury;
+    
     // Property (protector)
     public string Model { get => _model; set => _model = value; } // get = read; set = write;
-    public string Brand { get => _brand;
+    public string Brand {
+        get
+        {
+            if (_isLuxury)
+            {
+                return _brand + " - Luxury Edition";
+            }
+            else
+            {
+                return _brand;
+            }
+        }
         set
         {
             if (string.IsNullOrEmpty(value))
@@ -24,12 +37,21 @@ internal class Car
             
         }
     }
+
+    public bool isLuxury { get => _isLuxury; set => _isLuxury = value; }
     
     // Constructor 
-    public Car(string model, string brand)
+    public Car(string model, string brand, bool isLuxury)
     {
         Model = model; 
         Brand = brand;
+        _isLuxury = isLuxury;
+        
         Console.WriteLine("A car {1} of the model {0} has been created.", _model, _brand);
+    }
+
+    public void Drive()
+    {
+        Console.WriteLine("I'm a {0} and I'm driving...", Brand);
     }
 }
