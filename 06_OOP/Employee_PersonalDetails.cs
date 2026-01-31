@@ -19,6 +19,8 @@ public partial class Employee
             } 
         }
         public string Location { get; set; }
+        public DateTime? VacationUntil { get; private set; }
+        public DateTime? SickLeaveUntil { get; private set; }
 
         public Employee()
         {
@@ -34,7 +36,10 @@ public partial class Employee
             LastName = lastname;
             BirthDate = birthdate;
             Location = location;
-
-            Console.WriteLine("The given data was successfully saved to the database.");
         }
+        
+        public void EmployeeRelocate(string newLocation) => Location = newLocation;
+        public void ChangeFirstName(string newFirstName) => FirstName = newFirstName;
+        public void ChangeLastName(string newLastName) => LastName = newLastName;
+        
 }
