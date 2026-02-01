@@ -2,6 +2,15 @@
 
 class Program
 {
+    /*
+    \-> STATIC Class
+
+     EXAMPLE:
+     static void Utilities()
+
+     \-> cannot be instantiated (can't do new Utilities());
+      \-> all its member must be static;
+     */
     static void Main(string[] args) // entry point
     {
         // Creating an instance of the class Car
@@ -91,5 +100,80 @@ class Program
         emp2.SubmitSickLeave(DateTime.Now.AddDays(14));
 
         company.DisplayAllEmployees();
+        
+        Skip();
+
+        // COMPUTED PROPERTY
+        // without constructor
+        Rectangle r1 = new Rectangle();
+        r1.Width = 5;
+        r1.Height = 6;
+        
+        // r1.Area = 5; <= read-only property (no setter)
+        Console.WriteLine("The area of r1 is: {0}", r1.Area);
+        
+        Skip();
+
+        /*
+        \-> STATIC Method
+
+         EXAMPLE:
+         public static void DisplayNumberOfCars()
+
+         \-> can be called without creating an object;
+          \-> instance-specific fields (Model, Brand) aren't visible inside it;
+         */
+        
+        Customer person = new Customer();
+        person.SetDetails("Denis", "Main Street");
+        Customer.MakeADiscount();
+        
+        /*
+        \-> STATIC Field
+
+         EXAMPLE:
+         public static int NumberOfCars = 0;
+
+         \-> belongs to the class itself, not any single instance;
+          \-> shared among all s of the class;
+         */
+        
+        Car car = new Car("A3","Audi", false);
+        Car car2 = new Car();
+        Car car3 = new Car();
+        
+        // accessing the public static variable "NumberOfCars" of the Car Class
+        Console.WriteLine("Number of cars produced: " + Car.NumberOfCars);
+
+        Skip();
+        
+        Customer c1 = new Customer("Joe");
+        Customer c2 = new Customer("Maria");
+        Customer c3 = new Customer();
+
+        c1.ReadDetails();
+        c2.ReadDetails();
+
+        Console.WriteLine($"Id of {c2.Name} is: " + c2.Id);
+
+        c3.Password = "12EKol0&*$#";
+        // Console.WriteLine(c3.Password); <- lacks get accessor, cannot read the password
+
+        Skip();
+
+        Rectangle rect = new Rectangle("Pink");
+        rect.SetWidth(4);
+        rect.SetHeight(8);
+        rect.DisplayDetails();
+
+        Console.WriteLine($"WIDTH - {rect.Width} cm, HEIGHT - {rect.Height} cm");
+        Console.WriteLine($"Area: {rect.Area}");
+        
+    }
+
+    static void Skip()
+    {
+        Console.ReadKey();
+        Console.Clear();
     }
 }
