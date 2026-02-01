@@ -4,6 +4,7 @@ public class Employees
 {
     // List for storing all employees
     public List<Employee> AllEmployees { get; set; } = new List<Employee>();
+    public static int EmployeesCount = 0; // access outside the class
     
     public static string[] jobTitles = {
         "Internship Student",
@@ -19,6 +20,7 @@ public class Employees
     // Add a new employee to company
     public void AddEmployee(Employee emp)
     {
+        EmployeesCount++;
         AllEmployees.Add(emp);
         Console.WriteLine("{0} has been added successfully!", emp.FirstName);
     }
