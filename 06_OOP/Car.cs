@@ -4,9 +4,10 @@ internal class Car
 {
     // Member Variable
     // >!< Private hides the variable from other classes >!<
+    public static int NumberOfCars = 0;
+    
     private string _model;
     private string _brand;
-
     private bool _isLuxury;
     
     // Property (protector)
@@ -43,12 +44,16 @@ internal class Car
     // Constructor 
     public Car(string model, string brand, bool isLuxury)
     {
+        NumberOfCars++;
+        
         Model = model; 
         Brand = brand;
         _isLuxury = isLuxury;
         
         Console.WriteLine("A car {1} of the model {0} has been created.", _model, _brand);
     }
+
+    public Car() => NumberOfCars++;
 
     public void Drive()
     {
