@@ -1,4 +1,6 @@
-﻿namespace _06_OOP;
+﻿using _06_OOP.QuizApp;
+
+namespace _06_OOP;
 
 class Program
 {
@@ -168,7 +170,24 @@ class Program
 
         Console.WriteLine($"WIDTH - {rect.Width} cm, HEIGHT - {rect.Height} cm");
         Console.WriteLine($"Area: {rect.Area}");
+
+        QuizAppRun();
+        Console.ReadLine();
+    }
+
+    static void QuizAppRun()
+    {
+        Question[] questions = new Question[]
+        {
+            new Question("What is the capital of Germany?", // question
+                new string[] { "Paris", "London", "Kyiv", "Berlin" }, // answers
+                3), // correct answer index
+            new Question("What is the capital of Great Britain?",
+                new string[] {"London","Ottava","Washington","Minsk"}, 0)
+        }; 
         
+        Quiz myQuiz = new Quiz(questions);
+        myQuiz.StartQuiz();
     }
 
     static void Skip()
