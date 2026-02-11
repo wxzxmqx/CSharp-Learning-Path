@@ -160,7 +160,7 @@ class Program
 
         long sum = 0;
         
-        while (prices.Count != 150_000)
+        while (prices.Count != 1_000_000)
         {
             prices.Add(priceGen.Next(minPrice, maxPrice));
         }
@@ -209,15 +209,26 @@ class Program
             player.InsertData(playerNickname, playerIp, playerCountry,playerServer);
             db.Add(player);
         }
-
+        
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("\n[Search]");
+        Console.ResetColor();
         Console.WriteLine($"Found {db.Count()} player(-s).");
 
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("\n[Database]");
+        Console.ResetColor();
+        Console.WriteLine("Sensitive data is hidden.\n");
+        
         foreach (var player in db)
         {
+            string ip = player.Ip!;
+            string maskedIp = ip.Substring(0, ip.Length - 6) + "******";
+            
             Console.Write($"{player.Nickname,-18} | {player.Location,-16} |");
             Console.Write(" IP: ");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.Write($"{player.Ip,-16}");
+            Console.Write($"{maskedIp,-16}");
             Console.ResetColor();
             Console.Write($"| Server: {player.Server}\n");
         }
