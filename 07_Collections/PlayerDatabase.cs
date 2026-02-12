@@ -28,12 +28,11 @@ public class PlayerDatabase
     
     // private fields
     private string _ipAddress;
-    private readonly Guid _uuid = new Guid();
     private string _location;
 
     // properties
     public string? Nickname { get; set; }
-    public Guid? Uuid { get => _uuid; }
+    public Guid? Uuid { get; private set; }
     public string? Ip
     {
         get => _ipAddress;
@@ -45,17 +44,19 @@ public class PlayerDatabase
         set => _location = value == null ? "Undefined" : value;
     }
     public string? Server { get; set; }
-    
-    public PlayerDatabase() { } // nothing to create
 
-    public void InsertData(string nickname, string ip, string location, string server = "hub-1")
+    public PlayerDatabase(string nickname, string ip, string location, string server)
     {
         Nickname = nickname;
+        Uuid = Guid.NewGuid();
         Ip = ip;
         Location = location;
         Server = server;
 
-        Console.WriteLine($"The player {_uuid} has been added to server's database.");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write($"[+]");
+        Console.ResetColor();
+        Console.Write($" The UUID {Uuid} has been added to the server's database.\n");
     }
 
     public static string GenerateIp()

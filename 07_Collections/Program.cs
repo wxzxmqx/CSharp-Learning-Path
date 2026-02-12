@@ -1,5 +1,10 @@
 ﻿namespace _07_Collections;
 
+public class Product
+{
+    public string Name { get; set; }
+    public double Price { get; set; }
+}
 class Program
 {
     static void Main(string[] args)
@@ -192,21 +197,26 @@ class Program
             Console.WriteLine("There are Large numbers in the numbers list");
         }
         
+        //
+        // ------------------------------------------
+        //
         // REAL-WORLD USAGE (Database Implementation)
+        //
+        // ------------------------------------------
+        //
 
         List<PlayerDatabase> db = new List<PlayerDatabase>(); 
 
         Random gen = new Random();
 
-        for (int i = 0; i <= 14; i++)
+        for (int i = 0; i <= 2; i++)
         {
             string playerNickname = PlayerDatabase.Nicknames[gen.Next(PlayerDatabase.Nicknames.Count)];
             string playerCountry = PlayerDatabase.Countries[gen.Next(PlayerDatabase.Countries.Count)];
             string playerServer = PlayerDatabase.Servers[gen.Next(PlayerDatabase.Servers.Count)];
             string playerIp = PlayerDatabase.GenerateIp();
             
-            PlayerDatabase player = new PlayerDatabase();
-            player.InsertData(playerNickname, playerIp, playerCountry,playerServer);
+            PlayerDatabase player = new PlayerDatabase(playerNickname, playerIp,playerCountry, playerServer);
             db.Add(player);
         }
         
@@ -232,25 +242,148 @@ class Program
             Console.ResetColor();
             Console.Write($"| Server: {player.Server}\n");
         }
-
-        string desiredLocation = "France";
         
-        bool searchLocation = 
-            db.Any(p => p.Location == desiredLocation);
+        string? desiredLocation = Console.ReadLine();
+        
+            bool searchLocation = 
+                db.Any(p => p.Location == desiredLocation); // 1 occurrence
+        
+            if (searchLocation)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\n[Search]");
+                Console.ResetColor();
+                Console.WriteLine("Found some players from {0}", desiredLocation);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\n[Search]");
+                Console.ResetColor();
+                Console.WriteLine("Found no players from {0}", desiredLocation);
+            }
+            
+            //
+            // NEW SESSION
+            //
 
-        if (searchLocation)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\n[Search]");
-            Console.ResetColor();
-            Console.WriteLine("Found some players from {0}", desiredLocation);
-        }
-        else
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\n[Search]");
-            Console.ResetColor();
-            Console.WriteLine("Found no players from {0}", desiredLocation);
-        }
+            List<Product> products = new List<Product>()
+            {
+                new Product { Name = "Banana", Price = 0.30},
+                new Product { Name = "Kiwi", Price = 0.69},
+                new Product { Name = "Apple", Price = 0.80},
+                new Product { Name = "Strawberry", Price = 2.19},
+            };
+
+            products.Add(new Product { Name = "Berries", Price = 2.99 });
+
+            Console.WriteLine($"Available Products: ");
+            foreach (var product in products)
+            {
+                Console.WriteLine($"{product.Name,-10} | ${product.Price}");
+            }
+            
+            // List.Where() using case
+
+            List<Product> cheapProducts = 
+                products.Where(prod => prod.Price < 1.0).ToList();
+            // Returns IEnumerable (more flexible, more generic)
+
+            Console.WriteLine("------------------------");
+            Console.WriteLine("Cheap Products (<$1): ");
+            foreach (var product in cheapProducts)
+            {
+                Console.WriteLine($"{product.Name,-10} | ${product.Price,-5}");
+            }
+            
+            // Dictionary ⇒ key-value pair
+
+            // <int - key, string - value>
+            Dictionary<int, string> customers = new Dictionary<int, string>();
+            
+            // Adding an item to a dictionary
+            customers.Add(1, "John Doe");
+            customers.Add(2, "Bob Smith");
+            customers.Add(3, "Mark Smith");
+            customers.Add(4, "Rob Smith");
+            customers.Add(5, "Sam Smith");
+
+            Console.ReadKey();
+            Console.Clear();
+
+            // Accessing an item to a dictionary
+            string name = customers[2];
+            Console.WriteLine(name);
+
+            // Updating data in a dictionary
+            customers[1] = "Jane Smith";
+            
+            // Removing an item from a dictionary
+            customers.Remove(1);
+            
+            // Iterating through Dictionary
+            foreach (var (id,customerName) in customers)
+            {
+                Console.WriteLine($"ID: {id,-2} | Name: {customerName,-15}");
+            }
+            
+            // customers.Add(5, "Mike Jike");    <= ERROR
+            
+            // TODO:
+            // Modify the dictionary of possible customers
+            // and catch errors while they're trying to modify their values.
+            
+            do
+            {
+                Color(ConsoleColor.Yellow);
+                Console.WriteLine("[Adding a new customer]");
+                ResetColor();
+
+                Console.Write("Enter an ID: ");
+                bool isNumber = int.TryParse(Console.ReadLine(), out var index);
+
+                if (!isNumber || index < 0)
+                {
+                    Color(ConsoleColor.Red);
+                    Console.Write("\n[x]");
+                    ResetColor();
+                    Console.WriteLine($" Error: Please enter a valid number.\n");
+                    continue;
+                }
+                
+                if (index == 0) break;
+
+                Console.Write("Enter name: ");
+                string newCustomer = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(newCustomer))
+                {
+                    Color(ConsoleColor.Red);
+                    Console.Write("\n[x]");
+                    ResetColor();
+                    Console.WriteLine($" Error: Invalid Name\n");
+                    continue;
+                }
+
+                bool success = customers.TryAdd(index, newCustomer);
+
+                if (success)
+                {
+                    Color(ConsoleColor.Green);
+                    Console.Write("\n[+]");
+                    ResetColor();
+                    Console.WriteLine($" The customer {newCustomer} has been added to the customer's database. Their ID is {index}.\n");
+                }
+                else
+                {
+                    Color(ConsoleColor.Red);
+                    Console.Write("\n[x]");
+                    ResetColor();
+                    Console.WriteLine($" Error: That ID already exists!\n");
+                }
+            } while (true);
     }
+
+    static void Color(ConsoleColor color) => Console.ForegroundColor = color;
+    static void ResetColor() => Console.ResetColor();
 }
