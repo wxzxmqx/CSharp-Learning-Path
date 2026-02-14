@@ -5,10 +5,56 @@ public class Product
     public string Name { get; set; }
     public double Price { get; set; }
 }
+
+class Employee
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public double Salary { get; set; }
+
+    public Employee(string name, int age, double salary)
+    {
+        Name = name;
+        Age = age;
+        Salary = salary;
+    }
+}
+
 class Program
 {
     static void Main(string[] args)
     {
+
+        var codes = new Dictionary<string, string>
+        {
+            // key      value
+            //  vvv       vvv  
+            ["NY"] = "New York",
+            ["CA"] = "California",
+            ["TX"] = "Texas",
+        };
+
+        if (codes.TryGetValue("NY", out string state))
+        {
+            Console.WriteLine(state);
+        }
+
+        Dictionary<int, Employee> employees = new Dictionary<int, Employee>();
+        employees.Add(1, new Employee("Jay Sean", 25, 46000.00));        
+        employees.Add(2, new Employee("Maria Sean", 19, 25000.00));
+        employees.Add(3, new Employee("Sarah Will", 28, 80000.00));
+        
+        // Iteration through all employees
+        foreach (var item in employees)
+        {
+            Console.WriteLine($"ID: {item.Key} named {item.Value.Name} " +
+                              $"earns {item.Value.Salary} " +
+                              $"and is {item.Value.Age}.");
+        }
+
+        Console.ReadKey();
+        Console.Clear();
+        
         // List Implementation
         // List<T> name = new List<T>();
         List<string> purchasedGames = new List<string>();
