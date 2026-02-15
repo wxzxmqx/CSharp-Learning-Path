@@ -393,7 +393,7 @@ class Program
                     Color(ConsoleColor.Red);
                     Console.Write("\n[x]");
                     ResetColor();
-                    Console.WriteLine($" Error: Please enter a valid number.\n");
+                    throw new Exception($" Error: Please enter a valid number.\n");
                     continue;
                 }
                 
@@ -407,7 +407,7 @@ class Program
                     Color(ConsoleColor.Red);
                     Console.Write("\n[x]");
                     ResetColor();
-                    Console.WriteLine($" Error: Invalid Name\n");
+                    throw new Exception($" Error: Invalid Name\n");
                     continue;
                 }
 
@@ -425,7 +425,7 @@ class Program
                     Color(ConsoleColor.Red);
                     Console.Write("\n[x]");
                     ResetColor();
-                    Console.WriteLine($" Error: That ID already exists!\n");
+                    throw new Exception($" Error: That ID already exists!\n");
                 }
             } while (true);
     }
